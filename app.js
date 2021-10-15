@@ -1,7 +1,6 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
-const connectDB = require("./db/connect");
-require("dotenv").config();
 
 // middleware
 app.use(express.json());
@@ -12,6 +11,7 @@ const tasks = require("./routes/tasks");
 app.use("/api/v1/tasks", tasks);
 
 // Starting Server
+const connectDB = require("./db/connect");
 const port = 8000;
 const start = async () => {
     try {
